@@ -47,6 +47,9 @@ def over_under():
             print(f"player 1: {player1points} points")
             print(f"player 2: {player2points} points")
 
-        print("turn is over, switch player roles")
+        if player1points != 6 and player2points != 6:
+            print("turn is over, switch player roles")
+        else:
+            print("Game over")
 
 over_under()
