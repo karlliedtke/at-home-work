@@ -6,11 +6,17 @@ def rollDice():
 def over_under():
     player1points = 0
     player2points = 0
-    while 6 not in [player1points, player2points]:
+
+    while True:
         print("\nplayer 1 is now rolling the dice")
         roll = rollDice()
         print(roll)
-        guess = input("Player 2, will next roll be over or under? over/under: ")
+        while True:
+            guess = input("Player 2, will next roll be over or under? over/under: ").strip().lower()
+            if guess in ["over", "under"]:
+                  break
+            else:
+                print("Invalid input, please enter 'over' or 'under'")
         roll_two = rollDice()
         print(roll_two)
         if guess == "over" and roll_two > roll:
@@ -26,12 +32,21 @@ def over_under():
             print(f"player 1: {player1points} points")
             print(f"player 2: {player2points} points")
 
-        print("turn is over, switch player roles")
+        if player2points ==6:
+                print("Game over, player 2 wins")
+                break
+        else:
+                print("turn is over, switch player roles")
 
         print("\nplayer 2 is now rolling the dice")
         roll = rollDice()
         print(roll)
-        guess = input("Player 1, will next roll be over or under? over/under: ")
+        while True:
+            guess = input("Player 2, will next roll be over or under? over/under: ").strip().lower()
+            if guess in ["over", "under"]:
+                  break
+            else:
+                print("Invalid input, please enter 'over' or 'under'")
         roll_two = rollDice()
         print(roll_two)
         if guess == "over" and roll_two > roll:
@@ -47,9 +62,12 @@ def over_under():
             print(f"player 1: {player1points} points")
             print(f"player 2: {player2points} points")
 
-        if player1points != 6 and player2points != 6:
-            print("turn is over, switch player roles")
+        if player1points ==6:
+                print("Game over, player 1 wins")
+                break
         else:
-            print("Game over")
+                print("turn is over, switch player roles")
 
 over_under()
+
+
