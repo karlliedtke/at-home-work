@@ -6,15 +6,15 @@ def rollDice():
 def take_turn():
         turn_total = 0
         roll = rollDice()
-        print(roll)
+        print(f"roll is: {roll}")
         while True:
-            guess = input("will next roll be over or under? over/under: ").strip().lower()
+            guess = input("\nwill next roll be over or under? over/under: ").strip().lower()
             if guess in ["over", "under"]:
                   break
             else:
                 print("Invalid input, please enter 'over' or 'under'")
         roll_two = rollDice()
-        print(roll_two)
+        print(f"\nsecond roll is: {roll_two}")
         if guess == "over" and roll_two > roll:
             turn_total += 1
             print()
@@ -31,7 +31,7 @@ player2points = 0
 
 while True:
     while True:
-        switch = input("It is now Player 1's turn to roll and player 2's to guess. enter yes to continue: ").strip().lower()
+        switch = input("\nIt is now Player 1's turn to roll and player 2's to guess. enter yes to continue: ").strip().lower()
         if switch in ["yes"]:
                 break
         else:
@@ -45,7 +45,7 @@ while True:
             break
     
     while True:
-        switch = input("It is now Player 2's turn to roll and player 1's to guess. enter yes to continue: ").strip().lower()
+        switch = input("\nIt is now Player 2's turn to roll and player 1's to guess. enter yes to continue: ").strip().lower()
         if switch in ["yes"]:
                 break
         else:
@@ -58,7 +58,7 @@ while True:
             print("Game over, player 1 wins")
             break
 
-take_turn()
+
            
 
       
